@@ -1,4 +1,4 @@
-package com.study.dokky.enums;
+package com.study.dokky.api.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

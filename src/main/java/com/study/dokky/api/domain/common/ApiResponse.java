@@ -1,7 +1,7 @@
-package com.study.dokky.adapter;
+package com.study.dokky.api.domain.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.study.dokky.enums.Status;
+import com.study.dokky.api.domain.model.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

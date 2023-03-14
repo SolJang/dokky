@@ -1,4 +1,4 @@
-package com.study.dokky.adapter.web.api.test;
+package com.study.dokky.api;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,3 +11,4 @@ public class MemberRequest {
     private String name;
     private String age;
 }
+//알아서 옮겨보시오
