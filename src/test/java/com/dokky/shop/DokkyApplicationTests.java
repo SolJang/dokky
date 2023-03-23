@@ -1,4 +1,4 @@
-package com.study.dokky;
+package com.dokky.shop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
