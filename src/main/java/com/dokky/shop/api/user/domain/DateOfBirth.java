@@ -1,7 +1,9 @@
 package com.dokky.shop.api.user.domain;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Column;
@@ -12,7 +14,7 @@ import java.time.LocalDate;
 @Embeddable
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
-public class DateOfBirth {
+public @Getter @Setter class DateOfBirth {
     @Column(name = "date_of_year")
     int year;
     @Column(name = "date_of_month")

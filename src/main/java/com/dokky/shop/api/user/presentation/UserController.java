@@ -1,9 +1,7 @@
 package com.dokky.shop.api.user.presentation;
 
-import com.dokky.shop.api.user.application.CreateUserService;
-import com.dokky.shop.api.user.application.DeleteUserService;
-import com.dokky.shop.api.user.application.ReadUserService;
-import com.dokky.shop.api.user.application.UpdateUserService;
+import com.dokky.shop.api.user.UserMapper;
+import com.dokky.shop.api.user.application.*;
 import com.dokky.shop.api.user.domain.entity.User;
 import com.dokky.shop.api.user.presentation.dto.CreateUserRequest;
 import com.dokky.shop.api.user.presentation.dto.UpdateUserRequest;
@@ -23,11 +21,13 @@ public class UserController {
     private final UpdateUserService updateService;
     private final DeleteUserService deleteService;
 
+    private final UserMapper mapper;
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public String signUp(@RequestBody CreateUserRequest request) {
-        createService.createUser(request);
+        createService.createUser(mapper.of(request));
         return "사용자 생성 완료";
     }
 

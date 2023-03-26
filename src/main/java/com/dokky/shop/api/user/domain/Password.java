@@ -1,25 +1,28 @@
 package com.dokky.shop.api.user.domain;
 
-import lombok.*;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-import org.springframework.core.serializer.Serializer;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.io.Serializable;
 
 @Embeddable
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public @Getter @Setter class UserId implements Serializable {
-
-    @Column(name = "id")
+public @Getter @Setter class Password {
+    @Column(name = "password")
     String value;
 
-    public UserId() {}
-    public UserId(String value) {
+    public Password () {
+    }
+
+    public Password(String value) {
         if (value == null || value.isEmpty()) {
-            throw new IllegalArgumentException("UserId cannot be null");
+            throw new IllegalArgumentException("Password cannot be null");
         }
         this.value = value;
     }
+
 }
