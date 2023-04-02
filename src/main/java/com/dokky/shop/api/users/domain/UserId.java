@@ -1,8 +1,7 @@
-package com.dokky.shop.api.user.domain;
+package com.dokky.shop.api.users.domain;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.core.serializer.Serializer;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

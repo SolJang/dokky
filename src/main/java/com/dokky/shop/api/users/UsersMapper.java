@@ -1,13 +1,13 @@
-package com.dokky.shop.api.user;
+package com.dokky.shop.api.users;
 
-import com.dokky.shop.api.user.application.CreateUserCommand;
-import com.dokky.shop.api.user.domain.UserId;
-import com.dokky.shop.api.user.presentation.dto.CreateUserRequest;
+import com.dokky.shop.api.users.application.CreateUsersCommand;
+import com.dokky.shop.api.users.domain.UserId;
+import com.dokky.shop.api.users.presentation.dto.CreateUsersRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public interface UserMapper {
+public interface UsersMapper {
 
     @Mapping(source = "id", target = "value")
     UserId toUserId(String id);
@@ -18,7 +18,7 @@ public interface UserMapper {
     @Mapping(source = "year", target = "birth.year")
     @Mapping(source = "month", target = "birth.month")
     @Mapping(source = "day", target = "birth.day")
-    CreateUserCommand of(CreateUserRequest request);
+    CreateUsersCommand of(CreateUsersRequest request);
 
 
 }

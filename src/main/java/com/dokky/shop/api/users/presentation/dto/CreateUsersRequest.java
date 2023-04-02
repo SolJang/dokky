@@ -1,15 +1,13 @@
-package com.dokky.shop.api.user.presentation.dto;
+package com.dokky.shop.api.users.presentation.dto;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-import org.springframework.stereotype.Service;
 
 @Getter @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CreateUserRequest {
-
+public class CreateUsersRequest {
     String id;
     String password;
     String confirmPassword;
@@ -20,7 +18,4 @@ public class CreateUserRequest {
     String sex;
     String email;
     String mobileNumber;
-
-
-
 }

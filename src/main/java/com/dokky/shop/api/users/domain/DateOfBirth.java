@@ -1,14 +1,12 @@
-package com.dokky.shop.api.user.domain;
+package com.dokky.shop.api.users.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 import java.time.LocalDate;
 
 @Embeddable
