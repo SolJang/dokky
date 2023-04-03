@@ -2,6 +2,7 @@ package com.dokky.shop.api.users;
 
 import com.dokky.shop.api.users.application.CreateUsersCommand;
 import com.dokky.shop.api.users.domain.UserId;
+import com.dokky.shop.api.users.domain.entity.Users;
 import com.dokky.shop.api.users.presentation.dto.CreateUsersRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,6 +20,9 @@ public interface UsersMapper {
     @Mapping(source = "month", target = "birth.month")
     @Mapping(source = "day", target = "birth.day")
     CreateUsersCommand of(CreateUsersRequest request);
+
+    @Mapping(source = "birth", target = "dateOfBirth")
+    Users commandToUsers(CreateUsersCommand command);
 
 
 }

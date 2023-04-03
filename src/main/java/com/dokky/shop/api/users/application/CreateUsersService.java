@@ -1,5 +1,6 @@
 package com.dokky.shop.api.users.application;
 
+import com.dokky.shop.api.users.UsersMapper;
 import com.dokky.shop.api.users.application.validator.CreateUsersValidator;
 import com.dokky.shop.api.users.domain.entity.Users;
 import com.dokky.shop.api.users.domain.repository.UsersRepository;
@@ -8,15 +9,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
-@Service
 @Slf4j
+@Service
 public class CreateUsersService {
     private final UsersRepository usersRepository;
     private final CreateUsersValidator createUsersValidator;
+    private final UsersMapper mapper;
 
-    public CreateUsersService(UsersRepository usersRepository, CreateUsersValidator createUsersValidator) {
+    public CreateUsersService(UsersRepository usersRepository, CreateUsersValidator createUsersValidator, UsersMapper mapper) {
         this.usersRepository = usersRepository;
         this.createUsersValidator = createUsersValidator;
+        this.mapper = mapper;
     }
 
     @Transactional
@@ -30,12 +33,11 @@ public class CreateUsersService {
 
         // 아이디 존재 여부 체크
         if ( usersRepository.findById(command.id()).isPresent() ) {
-            log.error("user id is already exists > {}", command.id().getValue());
+            log.error("userId is already exists > userId : {}", command.id().getValue());
             return;
         }
 
         // db insert
-        Users users = new Users(command);
-        usersRepository.save(users);
+        usersRepository.save(mapper.commandToUsers(command));
     }
 }
