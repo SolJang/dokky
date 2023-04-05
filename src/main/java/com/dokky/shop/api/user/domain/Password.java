@@ -1,4 +1,4 @@
-package com.dokky.shop.api.users.domain;
+package com.dokky.shop.api.user.domain;
 
 
 import lombok.AccessLevel;

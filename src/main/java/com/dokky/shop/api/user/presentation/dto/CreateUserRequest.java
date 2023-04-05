@@ -1,4 +1,4 @@
-package com.dokky.shop.api.users.presentation.dto;
+package com.dokky.shop.api.user.presentation.dto;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.experimental.FieldDefaults;
 
 @Getter @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CreateUsersRequest {
+public class CreateUserRequest {
     String id;
     String password;
     String confirmPassword;

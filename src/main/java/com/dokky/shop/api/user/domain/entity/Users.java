@@ -1,8 +1,8 @@
-package com.dokky.shop.api.users.domain.entity;
+package com.dokky.shop.api.user.domain.entity;
 
-import com.dokky.shop.api.users.domain.DateOfBirth;
-import com.dokky.shop.api.users.domain.Password;
-import com.dokky.shop.api.users.domain.UserId;
+import com.dokky.shop.api.user.domain.DateOfBirth;
+import com.dokky.shop.api.user.domain.Password;
+import com.dokky.shop.api.user.domain.UserId;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

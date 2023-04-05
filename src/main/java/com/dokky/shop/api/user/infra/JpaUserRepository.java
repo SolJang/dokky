@@ -1,8 +1,8 @@
-package com.dokky.shop.api.users.infra;
+package com.dokky.shop.api.user.infra;
 
-import com.dokky.shop.api.users.domain.UserId;
-import com.dokky.shop.api.users.domain.entity.Users;
-import com.dokky.shop.api.users.domain.repository.UsersRepository;
+import com.dokky.shop.api.user.domain.UserId;
+import com.dokky.shop.api.user.domain.entity.Users;
+import com.dokky.shop.api.user.domain.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -11,11 +11,11 @@ import java.util.Optional;
 
 @Repository
 @Slf4j
-public class JpaUsersRepository implements UsersRepository {
+public class JpaUserRepository implements UserRepository {
 
     private final EntityManager entityManager;
 
-    public JpaUsersRepository(EntityManager entityManager) {
+    public JpaUserRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
