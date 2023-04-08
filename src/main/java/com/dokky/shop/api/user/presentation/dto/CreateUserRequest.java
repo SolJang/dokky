@@ -1,12 +1,14 @@
 package com.dokky.shop.api.user.presentation.dto;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import javax.validation.constraints.*;
 
 @Getter
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CreateUserRequest {
     @NotBlank(message = "아이디를 입력해주세요.")
