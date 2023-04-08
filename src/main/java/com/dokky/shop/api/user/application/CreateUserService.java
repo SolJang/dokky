@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.BindingResult;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -18,14 +17,12 @@ public class CreateUserService {
     private final UserMapper mapper;
 
     @Transactional
-    public void createUser(CreateUserCommand command, BindingResult bindingResult) {
-        // 유효성 검사
-        createUserValidator.validate(command, bindingResult);
-        if ( bindingResult.hasErrors() ) {
-            log.error("user created error > {}", bindingResult.getFieldError().getCode());
+    public void createUser(CreateUserCommand command) {
+        // 여기서 비밀번호 체크
+        if ( !checkPasswordAndPasswordConfirm(command) ) {
+            log.error("password confirm comparison is fail");
             return;
         }
-
         // 아이디 존재 여부 체크
         if ( userRepository.findById(command.id()).isPresent() ) {
             log.error("userId is already exists > userId : {}", command.id().getValue());
@@ -34,5 +31,9 @@ public class CreateUserService {
 
         // db insert
         userRepository.save(mapper.commandToUsers(command));
+    }
+
+    private boolean checkPasswordAndPasswordConfirm(CreateUserCommand command) {
+        return command.password().getValue().equals(command.confirmPassword().getValue());
     }
 }

@@ -4,7 +4,7 @@ public class UserException extends Exception {
 
     UserException(){};
 
-    public UserException(String msg) {
+    protected UserException(String msg) {
         super(msg);
     }
 }

@@ -12,10 +12,9 @@ import java.util.Optional;
 @Repository
 @Slf4j
 public class JpaUserRepository implements UserRepository {
-
     private final EntityManager entityManager;
 
-    public JpaUserRepository(EntityManager entityManager) {
+    protected JpaUserRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
