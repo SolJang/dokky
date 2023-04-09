@@ -10,6 +10,7 @@ import com.dokky.shop.api.user.presentation.dto.UpdateUserRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -27,10 +28,12 @@ public class UserController {
     private final UserMapper mapper;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public String signUp(@RequestBody @Valid CreateUserRequest request) {
+    public ResponseEntity signUp(@RequestBody @Valid CreateUserRequest request) {
         createService.createUser(mapper.of(request));
-        return "사용자 생성 완료";
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .build();
+
     }
 
     @GetMapping("/{id}")

@@ -19,12 +19,12 @@ public class CreateUserService {
         // 비밀번호 체크
         if ( !checkPasswordAndPasswordConfirm(command) ) {
             log.error("password confirm comparison is fail");
-            return;
+            throw new IllegalArgumentException("not match password");
         }
         // 아이디 존재 여부 체크
         if ( jpsUserRepository.findById(command.id()).isPresent() ) {
             log.error("userId is already exists > userId : {}", command.id().getValue());
-            return;
+            throw new IllegalArgumentException("userId is already exists > userId : " + command.id().getValue());
         }
 
         // db insert
