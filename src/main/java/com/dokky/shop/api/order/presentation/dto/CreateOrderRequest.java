@@ -1,7 +1,6 @@
 package com.dokky.shop.api.order.presentation.dto;
 
-import com.dokky.shop.api.order.domain.Address;
-import com.dokky.shop.api.order.domain.PaymentType;
+import com.dokky.shop.api.order.domain.value.PaymentType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

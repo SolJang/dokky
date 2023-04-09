@@ -3,7 +3,7 @@ package com.dokky.shop.api.order.presentation;
 import com.dokky.shop.api.order.application.CreateOrderService;
 import com.dokky.shop.api.order.application.ReadOrderService;
 import com.dokky.shop.api.order.application.UpdateOrderService;
-import com.dokky.shop.api.order.domain.OrderNo;
+import com.dokky.shop.api.order.domain.value.OrderNo;
 import com.dokky.shop.api.order.domain.OrderMapper;
 import com.dokky.shop.api.order.presentation.dto.CreateOrderRequest;
 import com.dokky.shop.api.order.presentation.dto.UpdateOrderRequest;
@@ -29,13 +29,13 @@ public class OrderController {
         OrderNo orderNo = createService.registerOrder(mapper.of(request));
         return ResponseEntity.created(URI.create(OrderController.PREFIX + "orderId")).build();
     }
-    @GetMapping("/{orderId}")
-    public void getOrder (@PathVariable String orderId) {
+    @GetMapping("/{orderNo}")
+    public void readOrder (@PathVariable String orderNo) {
 
     }
 
-    @PutMapping("/{orderId}")
-    public void updateOrder(@PathVariable String orderId, @RequestBody UpdateOrderRequest request) {
+    @PutMapping("/{orderNo}")
+    public void updateOrder(@PathVariable String orderNo, @RequestBody UpdateOrderRequest request) {
 
     }
 }

@@ -1,9 +1,6 @@
-package com.dokky.shop.api.order.domain;
+package com.dokky.shop.api.order.domain.value;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Column;
@@ -21,7 +18,7 @@ public @Getter class OrderNo implements Serializable {
     String value;
 
     public OrderNo(String value) {
-        if(value == null || value.isEmpty()) {
+        if (value == null || value.isEmpty()) {
             throw new IllegalArgumentException("OrderId cannot be null");
         }
         this.value = value;

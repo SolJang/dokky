@@ -11,8 +11,7 @@ import java.io.Serializable;
 @Embeddable
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public @Getter @Setter class UserId implements Serializable {
-
-    @Column(name = "id")
+    @Column(name = "user_id")
     String value;
 
     public UserId() {}
@@ -21,5 +20,10 @@ public @Getter @Setter class UserId implements Serializable {
             throw new IllegalArgumentException("UserId cannot be null");
         }
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return this.value;
     }
 }

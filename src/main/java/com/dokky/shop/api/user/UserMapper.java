@@ -9,8 +9,8 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    @Mapping(source = "id", target = "value")
-    UserId toUserId(String id);
+//    @Mapping(source = "id", target = "value")
+//    UserId toUserId(String id);
 
     @Mapping(source = "id", target = "id.value")
     @Mapping(source = "password", target = "password.value")

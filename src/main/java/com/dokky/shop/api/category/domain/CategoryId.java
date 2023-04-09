@@ -1,5 +1,4 @@
-package com.dokky.shop.api.product.domain.entity;
-
+package com.dokky.shop.api.category.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,16 +12,13 @@ import java.io.Serializable;
 @Embeddable
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public @Getter class ProductId implements Serializable {
-    @Column(
-            name = "product_id"
-    )
+public @Getter class CategoryId implements Serializable {
+    @Column(name = "category_id")
     String value;
 
-    public ProductId (String value) {
+    public CategoryId(String value) {
         if(value == null || value.isEmpty()) {
-            throw new IllegalArgumentException("ProductId cannot be null");
+            throw new IllegalArgumentException("categoryId cannot be null");
         }
-        this.value = value;
     }
 }
