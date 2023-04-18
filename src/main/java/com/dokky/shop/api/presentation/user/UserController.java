@@ -1,19 +1,12 @@
-package com.dokky.shop.api.user.presentation;
+package com.dokky.shop.api.presentation.user;
 
-import com.dokky.shop.api.user.UserMapper;
-import com.dokky.shop.api.user.application.CreateUserService;
-import com.dokky.shop.api.user.application.DeleteUserService;
-import com.dokky.shop.api.user.application.ReadUserService;
-import com.dokky.shop.api.user.application.UpdateUserService;
-import com.dokky.shop.api.user.presentation.dto.CreateUserRequest;
-import com.dokky.shop.api.user.presentation.dto.UpdateUserRequest;
+import com.dokky.shop.api.application.user.*;
+import com.dokky.shop.api.domain.user.entity.UserId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 @Slf4j
@@ -21,18 +14,25 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class UserController {
     public static final String PREFIX = "/api/users";
-    private final CreateUserService createService;
+    private final UserCreateHandler userCreateHandler;
+    private final CreateUserValidator createUserValidator;
     private final ReadUserService readService;
     private final UpdateUserService updateService;
     private final DeleteUserService deleteService;
     private final UserMapper mapper;
 
     @PostMapping
-    public ResponseEntity signUp(@RequestBody @Valid CreateUserRequest request) {
-        createService.createUser(mapper.of(request));
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .build();
+    public ResponseEntity< ? > signUp(@RequestBody CreateUserRequest request) {
+        UserId userId = userCreateHandler.createUser( createUserValidator, mapper.of(request) );
+        log.info("userID : {}", userId);
+        return ResponseEntity.status(HttpStatus.OK).build();
+
+//        return ResponseHandler.of( () -> {
+//            userCreateHandler.createUser( createUserValidator, mapper.of(request) );
+//            return null;
+//        }).onError( ex -> {
+//            return errorMapper.map( ex );
+//        })
 
     }
 

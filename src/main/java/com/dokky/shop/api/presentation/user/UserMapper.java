@@ -1,9 +1,8 @@
-package com.dokky.shop.api.user;
+package com.dokky.shop.api.presentation.user;
 
-import com.dokky.shop.api.user.application.CreateUserCommand;
-import com.dokky.shop.api.user.domain.UserId;
-import com.dokky.shop.api.user.domain.entity.Users;
-import com.dokky.shop.api.user.presentation.dto.CreateUserRequest;
+import com.dokky.shop.api.application.user.CreateUserCommand;
+import com.dokky.shop.api.domain.user.entity.UserId;
+import com.dokky.shop.api.domain.user.Users;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

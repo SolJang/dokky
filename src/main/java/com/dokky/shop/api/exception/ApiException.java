@@ -1,4 +1,4 @@
-package com.dokky.shop.api.user.exception;
+package com.dokky.shop.api.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

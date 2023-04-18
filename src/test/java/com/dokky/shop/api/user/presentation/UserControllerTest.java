@@ -1,6 +1,6 @@
 package com.dokky.shop.api.user.presentation;
 
-import com.dokky.shop.api.user.presentation.dto.CreateUserRequest;
+import com.dokky.shop.api.presentation.user.CreateUserRequest;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

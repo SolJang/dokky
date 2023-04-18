@@ -1,4 +1,4 @@
-package com.dokky.shop.api.user.application;
+package com.dokky.shop.api.application.user;
 
 import org.springframework.stereotype.Service;
 

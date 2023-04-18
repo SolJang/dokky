@@ -1,8 +1,8 @@
-package com.dokky.shop.api.user.application;
+package com.dokky.shop.api.application.user;
 
-import com.dokky.shop.api.user.domain.DateOfBirth;
-import com.dokky.shop.api.user.domain.Password;
-import com.dokky.shop.api.user.domain.UserId;
+import com.dokky.shop.api.domain.user.entity.DateOfBirth;
+import com.dokky.shop.api.domain.user.entity.Password;
+import com.dokky.shop.api.domain.user.entity.UserId;
 
 public record CreateUserCommand(UserId id,
                                 Password password,
