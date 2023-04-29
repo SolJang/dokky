@@ -1,15 +1,15 @@
-package com.dokky.shop.api.member.domain;
+package com.dokky.shop.api.common;
 
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
 @FieldDefaults( level = AccessLevel.PRIVATE )
-public class MemberId implements Serializable {
-    @Column( name = "memberId" )
-    String value;
+public @Getter @Setter class MemberId implements Serializable {
+    private String value;
 }

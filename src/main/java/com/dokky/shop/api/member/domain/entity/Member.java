@@ -1,14 +1,13 @@
 package com.dokky.shop.api.member.domain.entity;
 
-import com.dokky.shop.api.member.domain.MemberId;
+import com.dokky.shop.api.common.Email;
+import com.dokky.shop.api.common.MemberId;
+import com.dokky.shop.api.common.Password;
+import com.dokky.shop.api.common.PhoneNo;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import java.util.List;
+import javax.persistence.*;
 
 @Entity
 @Table( name = "TB_MEMBER" )
@@ -16,15 +15,18 @@ import java.util.List;
 @NoArgsConstructor( access = AccessLevel.PROTECTED )
 @AllArgsConstructor( access = AccessLevel.PROTECTED )
 @FieldDefaults( level = AccessLevel.PRIVATE )
-public @Getter class Member {
-    @Id
-    MemberId memberId;
-    String password;
+public @Getter @Setter class Member {
+    @EmbeddedId
+    @AttributeOverride( name = "value", column = @Column( name = "memberId" ))
+    MemberId id;
+    @Embedded
+    @AttributeOverride( name = "value", column = @Column( name = "password" ))
+    Password pw;
     String name;
-    String email;
-    String phoneNo;
-    @OneToMany( mappedBy = "member" )
-    List<ShippingInfo> shippingInfos;
-    @OneToMany( mappedBy = "member" )
-    List<PaymentInfo> paymentInfos;
+    @Embedded
+    @AttributeOverride( name = "value", column = @Column( name = "email" ))
+    Email email;
+    @Embedded
+    @AttributeOverride( name = "value", column = @Column( name = "phoneNo" ))
+    PhoneNo no;
 }

@@ -15,6 +15,7 @@ public class MemberController {
     static final String URI_MEMBER_CREATE = "/register";
 
     private final MemberRegisterHandler handler;
+    private final MemberMapper mapper;
 
     /**
      * 멤버 회원가입
@@ -22,7 +23,9 @@ public class MemberController {
      */
     @PostMapping( value = URI_MEMBER_CREATE, consumes = MediaType.APPLICATION_JSON_VALUE )
     public void memberRegister( MemberRegisterReq memberRegisterReq ) {
-        handler.memberRegister( memberRegisterReq );
+
+        handler.memberRegister( mapper.of( memberRegisterReq ) );
+
     }
 
 }
