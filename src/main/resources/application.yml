@@ -18,3 +18,10 @@ spring:
         format_sql: true
         show_sql: true
     defer-datasource-initialization: true
+
+infra:
+  external:
+    cherry:
+      host: dev-api.cherryforce.kr
+      category-url: https://${infra.external.cherry.host}/v1/categories
+      product-url: https://${infra.external.cherry.host}/v1/products
